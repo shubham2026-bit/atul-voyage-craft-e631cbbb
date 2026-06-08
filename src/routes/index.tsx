@@ -24,6 +24,7 @@ function Home() {
     <SiteLayout>
       <Hero />
       <TrustBar />
+      <TourCategories />
       <Services />
       <WhyUs />
       <Destinations />
@@ -31,6 +32,66 @@ function Home() {
       <Testimonials />
       <EnquirySection />
     </SiteLayout>
+  );
+}
+
+const tourCategories = [
+  { title: "Golden Triangle", subtitle: "Delhi · Agra · Jaipur", emoji: "🕌", desc: "Explore India's Heritage", gradient: "from-amber-300 via-orange-400 to-rose-400", tag: "Most Popular" },
+  { title: "Himalayan Escape", subtitle: "Shimla · Manali · Kasol", emoji: "🏔️", desc: "Hills, snow & pine forests", gradient: "from-sky-300 via-cyan-400 to-emerald-400", tag: "Trending" },
+  { title: "Spiritual Journey", subtitle: "Haridwar · Rishikesh · Mathura", emoji: "🛕", desc: "Aarti, temples & ghats", gradient: "from-orange-300 via-amber-400 to-yellow-400", tag: "Sacred" },
+  { title: "Royal Rajasthan", subtitle: "Udaipur · Jodhpur · Jaisalmer", emoji: "🏰", desc: "Forts, palaces & deserts", gradient: "from-rose-300 via-pink-400 to-fuchsia-400", tag: "Luxury" },
+  { title: "Kashmir Paradise", subtitle: "Srinagar · Gulmarg · Pahalgam", emoji: "🌸", desc: "Dal Lake & alpine meadows", gradient: "from-indigo-300 via-violet-400 to-pink-400", tag: "Premium" },
+  { title: "Char Dham Yatra", subtitle: "Yamunotri · Gangotri · Kedarnath · Badrinath", emoji: "🙏", desc: "Sacred pilgrimage circuit", gradient: "from-yellow-300 via-orange-400 to-red-400", tag: "Pilgrimage" },
+];
+
+function TourCategories() {
+  return (
+    <section className="bg-background py-20">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <Reveal>
+          <div className="text-center">
+            <p className="font-display italic text-3xl sm:text-4xl text-gold-dark" style={{ fontFamily: "'Great Vibes', 'Playfair Display', cursive" }}>
+              Wonderful Place For You
+            </p>
+            <h2 className="mt-2 font-display text-3xl sm:text-4xl font-bold tracking-wide text-navy">
+              TOUR CATEGORIES
+            </h2>
+            <div className="mx-auto mt-5 flex items-center justify-center gap-3">
+              <span className="h-px w-20 bg-navy/30" />
+              <Plane className="h-5 w-5 text-navy" />
+              <span className="h-px w-20 bg-navy/30" />
+            </div>
+          </div>
+        </Reveal>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {tourCategories.map((c, i) => (
+            <Reveal key={c.title} delay={i * 70}>
+              <Link to="/enquiry" className="group block overflow-hidden rounded-2xl border border-border bg-card shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-elegant">
+                <div className={`relative flex h-52 items-center justify-center bg-gradient-to-br ${c.gradient}`}>
+                  <div className="text-8xl drop-shadow-lg transition-transform duration-500 group-hover:scale-110">{c.emoji}</div>
+                  <span className="absolute top-3 right-3 rounded-full bg-navy/90 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-gold backdrop-blur">
+                    {c.tag}
+                  </span>
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-4">
+                    <div className="text-center font-display text-xl font-bold text-white drop-shadow">{c.title}</div>
+                    <div className="text-center text-xs font-medium uppercase tracking-wider text-white/90">{c.subtitle}</div>
+                  </div>
+                </div>
+                <div className="bg-card p-5 text-center">
+                  <p className="font-display italic text-gold-dark text-lg" style={{ fontFamily: "'Great Vibes', 'Playfair Display', cursive" }}>
+                    {c.desc}
+                  </p>
+                  <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-navy px-4 py-2 text-xs font-semibold text-gold transition-colors group-hover:bg-gold group-hover:text-navy">
+                    Explore Package →
+                  </div>
+                </div>
+              </Link>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 
