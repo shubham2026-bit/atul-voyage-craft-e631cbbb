@@ -18,9 +18,11 @@ export function Footer() {
           <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-gold">Quick Links</h4>
           <ul className="space-y-2 text-sm text-white/80">
             <li><Link to="/" className="hover:text-gold">Home</Link></li>
-            <li><Link to="/enquiry" className="hover:text-gold">Book a Ride</Link></li>
-            <li><Link to="/contact" className="hover:text-gold">Contact</Link></li>
-            <li><Link to="/auth" className="hover:text-gold">Admin Login</Link></li>
+            <li><Link to="/about" className="hover:text-gold">About Us</Link></li>
+            <li><Link to="/packages" className="hover:text-gold">Packages</Link></li>
+            <li><Link to="/hotel" className="hover:text-gold">Hotel</Link></li>
+            <li><Link to="/gallery" className="hover:text-gold">Gallery</Link></li>
+            <li><Link to="/contact" className="hover:text-gold">Contact Us</Link></li>
           </ul>
         </div>
 

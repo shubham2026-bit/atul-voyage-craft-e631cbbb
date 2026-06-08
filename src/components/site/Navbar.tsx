@@ -6,8 +6,11 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { to: "/", label: "Home" },
-  { to: "/enquiry", label: "Book Now" },
-  { to: "/contact", label: "Contact" },
+  { to: "/about", label: "About Us" },
+  { to: "/packages", label: "Packages" },
+  { to: "/hotel", label: "Hotel" },
+  { to: "/gallery", label: "Gallery" },
+  { to: "/contact", label: "Contact Us" },
 ];
 
 export function Navbar() {
