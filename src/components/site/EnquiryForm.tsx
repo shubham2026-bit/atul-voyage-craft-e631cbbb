@@ -9,7 +9,8 @@ import { Textarea } from "@/components/ui/textarea";
 import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
-import { CheckCircle2, MessageCircle, Send } from "lucide-react";
+import { CheckCircle2, Send } from "lucide-react";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { toast } from "sonner";
 
 export function EnquiryForm() {
@@ -70,7 +71,7 @@ export function EnquiryForm() {
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <a href={SITE.whatsappUrl} target="_blank" rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-[#25D366] px-5 py-2.5 font-semibold text-white shadow-md hover:opacity-90">
-            <MessageCircle className="h-4 w-4" /> Chat with us on WhatsApp
+            <WhatsAppIcon className="h-5 w-5" /> Continue on WhatsApp →
           </a>
           <Button variant="outline" onClick={() => { setDone(false); setForm({ ...form, notes: "", pickup: "", drop_location: "" }); }}>
             Send Another

@@ -8,6 +8,7 @@ import {
   Phone, MessageCircle, Car, Plane, Mountain, Briefcase, MapPin,
   Shield, Clock, Award, BadgeCheck, Sparkles, Users, Star,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -126,8 +127,8 @@ function Hero() {
               <Button asChild size="lg" variant="outline" className="border-white/30 bg-white/10 text-white hover:bg-white/20">
                 <a href={`tel:${SITE.phone1}`}><Phone className="mr-2 h-4 w-4" /> {SITE.phone1}</a>
               </Button>
-              <Button asChild size="lg" variant="outline" className="border-[#25D366]/60 bg-[#25D366]/15 text-white hover:bg-[#25D366]/25">
-                <a href={SITE.whatsappUrl} target="_blank" rel="noreferrer"><MessageCircle className="mr-2 h-4 w-4" /> WhatsApp</a>
+              <Button asChild size="lg" className="bg-[#25D366] text-white font-semibold hover:bg-[#1ebe57] shadow-md">
+                <a href={SITE.whatsappUrl} target="_blank" rel="noreferrer"><WhatsAppIcon className="mr-2 h-5 w-5" /> WhatsApp Us</a>
               </Button>
             </div>
           </Reveal>

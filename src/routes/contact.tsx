@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { SITE } from "@/lib/site";
-import { Phone, MessageCircle, MapPin, Mail } from "lucide-react";
+import { Phone, MapPin, Mail } from "lucide-react";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/contact")({
   head: () => ({
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/contact")({
 function Contact() {
   const cards = [
     { icon: Phone, title: "Call Us", value: SITE.phone1, href: `tel:${SITE.phone1}`, sub: `Alt: ${SITE.phone2}` },
-    { icon: MessageCircle, title: "WhatsApp", value: SITE.phone2, href: SITE.whatsappUrl, sub: "24/7 chat support" },
+    { icon: WhatsAppIcon, title: "WhatsApp", value: SITE.phone2, href: SITE.whatsappUrl, sub: "24/7 chat support" },
     { icon: MapPin, title: "Visit Office", value: "Sector-6, RK Puram", href: "#map", sub: "New Delhi – 110022" },
   ];
   return (
