@@ -229,7 +229,7 @@ function WhyUs() {
     { icon: Award, t: "Decade of Trust", d: "10+ years serving families, corporates and tourists." },
     { icon: Users, t: "Experienced Drivers", d: "Polite, well-trained chauffeurs who know the routes." },
     { icon: BadgeCheck, t: "Clean, Comfortable Fleet", d: "Regularly sanitized sedans, SUVs & tempo travellers." },
-    { icon: Sparkles, t: "Premium Experience", d: "Personal attention, transparent pricing, flexible plans." },
+    { icon: Sparkles, t: "Premium Experience", d: "Personal attention, flexible plans." },
   ];
   return (
     <section className="py-20">
@@ -357,7 +357,7 @@ function EnquirySection() {
         <div className="lg:col-span-2">
           <span className="text-xs font-semibold uppercase tracking-widest text-gold">Get a quote</span>
           <h2 className="mt-3 font-display text-3xl font-bold sm:text-4xl">Ready to plan your next trip?</h2>
-          <p className="mt-3 text-white/75">Tell us a few details and we'll get back within 30 minutes with the best price and car for your journey.</p>
+          <p className="mt-3 text-white/75">Tell us a few details and we'll get back within 30 minutes with the best car for your journey.</p>
           <div className="mt-8 space-y-4 text-sm">
             <div className="flex items-center gap-3"><Phone className="h-5 w-5 text-gold" /><a href={`tel:${SITE.phone1}`}>{SITE.phone1}</a></div>
             <div className="flex items-center gap-3"><Phone className="h-5 w-5 text-gold" /><a href={`tel:${SITE.phone2}`}>{SITE.phone2}</a></div>

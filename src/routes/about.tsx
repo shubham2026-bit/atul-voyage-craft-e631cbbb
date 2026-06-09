@@ -22,7 +22,7 @@ function AboutPage() {
     { icon: Clock, t: "Punctuality", d: "On-time pickup and drop — every single trip." },
     { icon: Award, t: "10+ Years", d: "A decade of trust serving families & corporates." },
     { icon: Users, t: "Trained Chauffeurs", d: "Polite, professional, route-savvy drivers." },
-    { icon: BadgeCheck, t: "Transparent Pricing", d: "No hidden charges, clear quotes upfront." },
+    { icon: BadgeCheck, t: "Trusted Service", d: "Clear, honest dealings with every customer." },
     { icon: Sparkles, t: "Premium Care", d: "Personal attention from booking to drop-off." },
   ];
 
