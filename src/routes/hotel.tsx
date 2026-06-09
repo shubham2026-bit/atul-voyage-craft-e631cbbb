@@ -15,12 +15,12 @@ export const Route = createFileRoute("/hotel")({
 });
 
 const hotels = [
-  { name: "Heritage Haveli", city: "Jaipur", stars: 5, price: "₹6,500", emoji: "🏰", gradient: "from-rose-300 to-pink-400", tag: "Luxury" },
-  { name: "Taj View Resort", city: "Agra", stars: 5, price: "₹7,200", emoji: "🕌", gradient: "from-amber-300 to-orange-400", tag: "Premium" },
-  { name: "Hill Crown Inn", city: "Shimla", stars: 4, price: "₹4,800", emoji: "🏔️", gradient: "from-sky-300 to-cyan-400", tag: "Mountain" },
-  { name: "Ganga Retreat", city: "Rishikesh", stars: 4, price: "₹3,900", emoji: "🛕", gradient: "from-orange-300 to-yellow-400", tag: "Spiritual" },
-  { name: "Dal Lake Houseboat", city: "Srinagar", stars: 4, price: "₹5,500", emoji: "🌸", gradient: "from-indigo-300 to-violet-400", tag: "Unique" },
-  { name: "Backwater Villa", city: "Alleppey", stars: 4, price: "₹5,100", emoji: "🌴", gradient: "from-emerald-300 to-teal-400", tag: "Nature" },
+  { name: "Heritage Haveli", city: "Jaipur", stars: 5, emoji: "🏰", gradient: "from-rose-300 to-pink-400", tag: "Luxury" },
+  { name: "Taj View Resort", city: "Agra", stars: 5, emoji: "🕌", gradient: "from-amber-300 to-orange-400", tag: "Premium" },
+  { name: "Hill Crown Inn", city: "Shimla", stars: 4, emoji: "🏔️", gradient: "from-sky-300 to-cyan-400", tag: "Mountain" },
+  { name: "Ganga Retreat", city: "Rishikesh", stars: 4, emoji: "🛕", gradient: "from-orange-300 to-yellow-400", tag: "Spiritual" },
+  { name: "Dal Lake Houseboat", city: "Srinagar", stars: 4, emoji: "🌸", gradient: "from-indigo-300 to-violet-400", tag: "Unique" },
+  { name: "Backwater Villa", city: "Alleppey", stars: 4, emoji: "🌴", gradient: "from-emerald-300 to-teal-400", tag: "Nature" },
 ];
 
 const amenities = [
@@ -64,11 +64,7 @@ function HotelPage() {
                         {Array.from({ length: h.stars }).map((_, x) => <Star key={x} className="h-3.5 w-3.5 fill-current" />)}
                       </div>
                     </div>
-                    <div className="mt-4 flex items-end justify-between">
-                      <div>
-                        <div className="font-display text-2xl font-bold text-navy">{h.price}</div>
-                        <div className="text-xs text-muted-foreground">per night</div>
-                      </div>
+                    <div className="mt-4 flex items-end justify-end">
                       <Link to="/enquiry" className="rounded-full bg-navy px-4 py-2 text-xs font-semibold text-gold hover:bg-gold hover:text-navy transition-colors">
                         Enquire →
                       </Link>

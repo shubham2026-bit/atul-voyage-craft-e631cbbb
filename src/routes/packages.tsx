@@ -14,15 +14,15 @@ export const Route = createFileRoute("/packages")({
 });
 
 const packages = [
-  { title: "Golden Triangle", subtitle: "Delhi · Agra · Jaipur", days: "5 Days / 4 Nights", price: "₹14,999", emoji: "🕌", gradient: "from-amber-300 via-orange-400 to-rose-400", tag: "Bestseller" },
-  { title: "Himalayan Escape", subtitle: "Shimla · Manali · Kasol", days: "6 Days / 5 Nights", price: "₹18,499", emoji: "🏔️", gradient: "from-sky-300 via-cyan-400 to-emerald-400", tag: "Trending" },
-  { title: "Spiritual Journey", subtitle: "Haridwar · Rishikesh · Mathura", days: "4 Days / 3 Nights", price: "₹11,999", emoji: "🛕", gradient: "from-orange-300 via-amber-400 to-yellow-400", tag: "Sacred" },
-  { title: "Royal Rajasthan", subtitle: "Udaipur · Jodhpur · Jaisalmer", days: "7 Days / 6 Nights", price: "₹24,999", emoji: "🏰", gradient: "from-rose-300 via-pink-400 to-fuchsia-400", tag: "Luxury" },
-  { title: "Kashmir Paradise", subtitle: "Srinagar · Gulmarg · Pahalgam", days: "6 Days / 5 Nights", price: "₹22,499", emoji: "🌸", gradient: "from-indigo-300 via-violet-400 to-pink-400", tag: "Premium" },
-  { title: "Char Dham Yatra", subtitle: "Yamunotri · Gangotri · Kedarnath · Badrinath", days: "10 Days / 9 Nights", price: "₹29,999", emoji: "🙏", gradient: "from-yellow-300 via-orange-400 to-red-400", tag: "Pilgrimage" },
-  { title: "Goa Beaches", subtitle: "North & South Goa", days: "4 Days / 3 Nights", price: "₹15,999", emoji: "🏖️", gradient: "from-cyan-300 via-teal-400 to-emerald-400", tag: "Beach" },
-  { title: "Kerala Backwaters", subtitle: "Munnar · Alleppey · Kochi", days: "6 Days / 5 Nights", price: "₹21,999", emoji: "🌴", gradient: "from-emerald-300 via-green-400 to-teal-500", tag: "Nature" },
-  { title: "Northeast Explorer", subtitle: "Gangtok · Darjeeling", days: "5 Days / 4 Nights", price: "₹19,499", emoji: "⛰️", gradient: "from-violet-300 via-purple-400 to-indigo-400", tag: "Adventure" },
+  { title: "Golden Triangle", subtitle: "Delhi · Agra · Jaipur", days: "5 Days / 4 Nights", emoji: "🕌", gradient: "from-amber-300 via-orange-400 to-rose-400", tag: "Bestseller" },
+  { title: "Himalayan Escape", subtitle: "Shimla · Manali · Kasol", days: "6 Days / 5 Nights", emoji: "🏔️", gradient: "from-sky-300 via-cyan-400 to-emerald-400", tag: "Trending" },
+  { title: "Spiritual Journey", subtitle: "Haridwar · Rishikesh · Mathura", days: "4 Days / 3 Nights", emoji: "🛕", gradient: "from-orange-300 via-amber-400 to-yellow-400", tag: "Sacred" },
+  { title: "Royal Rajasthan", subtitle: "Udaipur · Jodhpur · Jaisalmer", days: "7 Days / 6 Nights", emoji: "🏰", gradient: "from-rose-300 via-pink-400 to-fuchsia-400", tag: "Luxury" },
+  { title: "Kashmir Paradise", subtitle: "Srinagar · Gulmarg · Pahalgam", days: "6 Days / 5 Nights", emoji: "🌸", gradient: "from-indigo-300 via-violet-400 to-pink-400", tag: "Premium" },
+  { title: "Char Dham Yatra", subtitle: "Yamunotri · Gangotri · Kedarnath · Badrinath", days: "10 Days / 9 Nights", emoji: "🙏", gradient: "from-yellow-300 via-orange-400 to-red-400", tag: "Pilgrimage" },
+  { title: "Goa Beaches", subtitle: "North & South Goa", days: "4 Days / 3 Nights", emoji: "🏖️", gradient: "from-cyan-300 via-teal-400 to-emerald-400", tag: "Beach" },
+  { title: "Kerala Backwaters", subtitle: "Munnar · Alleppey · Kochi", days: "6 Days / 5 Nights", emoji: "🌴", gradient: "from-emerald-300 via-green-400 to-teal-500", tag: "Nature" },
+  { title: "Northeast Explorer", subtitle: "Gangtok · Darjeeling", days: "5 Days / 4 Nights", emoji: "⛰️", gradient: "from-violet-300 via-purple-400 to-indigo-400", tag: "Adventure" },
 ];
 
 function PackagesPage() {
@@ -55,14 +55,11 @@ function PackagesPage() {
                   </div>
                   <div className="flex flex-1 flex-col p-5 text-center">
                     <div className="text-sm font-medium text-muted-foreground">{p.days}</div>
-                    <div className="mt-2 font-display text-2xl font-bold text-navy">
-                      {p.price} <span className="text-sm font-normal text-muted-foreground">/ person</span>
-                    </div>
                     <Link
                       to="/enquiry"
                       className="mt-4 inline-flex items-center justify-center rounded-full bg-navy px-4 py-2 text-xs font-semibold text-gold transition-colors hover:bg-gold hover:text-navy"
                     >
-                      Book This Package →
+                      Enquire Now →
                     </Link>
                   </div>
                 </div>
