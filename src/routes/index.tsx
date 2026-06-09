@@ -8,6 +8,7 @@ import {
   Phone, MessageCircle, Car, Plane, Mountain, Briefcase, MapPin,
   Shield, Clock, Award, BadgeCheck, Sparkles, Users, Star,
 } from "lucide-react";
+import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 
 export const Route = createFileRoute("/")({
   head: () => ({
