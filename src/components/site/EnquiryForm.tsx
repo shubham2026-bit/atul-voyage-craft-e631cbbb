@@ -1,6 +1,4 @@
 import { useState } from "react";
-import { useServerFn } from "@tanstack/react-start";
-import { submitEnquiry } from "@/lib/enquiries.functions";
 import { SITE, SERVICE_TYPES } from "@/lib/site";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -14,7 +12,6 @@ import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 import { toast } from "sonner";
 
 export function EnquiryForm() {
-  const send = useServerFn(submitEnquiry);
   const [loading, setLoading] = useState(false);
   const [done, setDone] = useState(false);
   const [form, setForm] = useState({
@@ -38,25 +35,8 @@ export function EnquiryForm() {
     }
     setLoading(true);
     try {
-      await send({
-        data: {
-          name: form.name.trim(),
-          phone: form.phone.trim(),
-          email: form.email.trim(),
-          service_type: form.service_type,
-          pickup: form.pickup.trim(),
-          drop_location: form.drop_location.trim() || null,
-          travel_date: form.travel_date || null,
-          travel_time: form.travel_time || null,
-          passengers: form.passengers ? Number(form.passengers) : null,
-          notes: form.notes.trim() || null,
-        },
-      });
-
-      // Email notification via Web3Forms
-      try {
-        const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
-        const message = `New enquiry received on your website!
+      const timestamp = new Date().toLocaleString("en-IN", { timeZone: "Asia/Kolkata" });
+      const message = `New enquiry received on your website!
 
 👤 Name: ${form.name}
 📱 Phone: ${form.phone}
@@ -69,21 +49,23 @@ export function EnquiryForm() {
 💬 Message: ${form.notes || "—"}
 ⏰ Received at: ${timestamp}`;
 
-        await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: { "Content-Type": "application/json", Accept: "application/json" },
-          body: JSON.stringify({
-            access_key: "9027a550-2226-4fde-9a02-6bc0285221a4",
-            subject: "🔔 New Enquiry - Atul Tour & Travels",
-            from_name: "Atul Tour & Travels Website",
-            email: form.email,
-            name: form.name,
-            message,
-            botcheck: "",
-          }),
-        });
-      } catch {
-        // non-blocking: enquiry already saved
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: "9027a550-2226-4fde-9a02-6bc0285221a4",
+          subject: "🔔 New Enquiry - Atul Tour & Travels",
+          from_name: "Atul Tour & Travels Website",
+          email: form.email,
+          name: form.name,
+          message,
+          botcheck: "",
+        }),
+      });
+
+      const result = await res.json().catch(() => ({ success: res.ok }));
+      if (!res.ok || result.success === false) {
+        throw new Error("Failed to send. Please try again or call us.");
       }
 
       setDone(true);
@@ -103,7 +85,7 @@ export function EnquiryForm() {
         <h3 className="mt-5 font-display text-2xl font-bold text-navy">Thank You!</h3>
         <p className="mt-2 text-muted-foreground">We received your enquiry. We will contact you within 30 minutes. 🙏</p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
-          <a href="https://wa.me/919310209227" target="_blank" rel="noreferrer"
+          <a href={SITE.whatsappUrl} target="_blank" rel="noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-[#25D366] px-5 py-2.5 font-semibold text-white shadow-md hover:opacity-90">
             <WhatsAppIcon className="h-5 w-5" /> Chat on WhatsApp
           </a>
