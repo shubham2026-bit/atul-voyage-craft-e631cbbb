@@ -17,15 +17,19 @@ export default defineConfig({
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ["react", "react-dom"],
-            router: ["@tanstack/react-router"],
-            ui: [
-              "@radix-ui/react-dialog",
-              "@radix-ui/react-dropdown-menu",
-            ],
-            supabase: ["@supabase/supabase-js"],
-            utils: ["date-fns", "clsx", "tailwind-merge"],
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              if (id.includes("react") || id.includes("react-dom")) return "vendor";
+              if (id.includes("@tanstack/react-router")) return "router";
+              if (
+                id.includes("@radix-ui/react-dialog") ||
+                id.includes("@radix-ui/react-dropdown-menu")
+              )
+                return "ui";
+              if (id.includes("@supabase")) return "supabase";
+              if (id.includes("date-fns") || id.includes("clsx") || id.includes("tailwind-merge"))
+                return "utils";
+            }
           },
         },
       },
